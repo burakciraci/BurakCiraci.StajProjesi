@@ -4,45 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - KariyerJet.Com</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/cv/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/cv/css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/cv/css/style.css" />
+    <link href="~/cv/css/Navbar.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KariyerJet.Com</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Index">Profil</a>
-                        </li>
-                    </ul>
-                </div>
+    <div class="container-fluid overcover">
+        <br />
+        <div class="container">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item">
+                     <a class="nav-link active" data-toggle="pill" href="#home">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#menu1">Profili Düzenle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" style="text-align:right" href="#menu1">Çıkış Yap</a>
+                </li>
+            </ul>
+        </div>
+        <br />
+        <div class="container profile-box">
+            <div class="row">
+                @RenderBody()
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - KariyerJet.Com - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="~/cv/js/jquery-3.2.1.min.js"></script>
+    <script src="~/cv/js/popper.min.js"></script>
+    <script src="~/cv/js/bootstrap.min.js"></script>
+    <script src="~/cv/js/script.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace KariyerJet.Com.Models.Poco
 {
-    public class Occupation : BaseModel
+    public class References : BaseModel
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string FullName { get; set; }
+        public string Job { get; set; }
+        public string Telephone { get; set; }
     }
 }
