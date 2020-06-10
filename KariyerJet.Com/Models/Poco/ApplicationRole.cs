@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace KariyerJet.Com.Models.Poco
 {
     public class ApplicationRole : IdentityRole
-    {
+    { 
+        public ICollection<UserRole> UserRole { get; set; }
     }
 }

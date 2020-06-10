@@ -16,6 +16,7 @@ namespace KariyerJet.Com.Models.Base
             Created = DateTime.Now;
             Updated = DateTime.Now;
             IsActive = true;
+            IsDeleted = false;
         }
         public int Id { get; set; }
         public DateTime Created { get; set; }

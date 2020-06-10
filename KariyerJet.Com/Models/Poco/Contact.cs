@@ -15,5 +15,7 @@ namespace KariyerJet.Com.Models.Poco
         public string Address { get; set; }
         public string WebSite { get; set; }
         public string GitHub { get; set; }
+        public int UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

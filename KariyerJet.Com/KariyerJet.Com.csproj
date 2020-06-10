@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Mapping\" />
     <Folder Include="Models\Constants\" />
     <Folder Include="Models\ViewModels\" />
   </ItemGroup>

@@ -15,5 +15,7 @@ namespace KariyerJet.Com.Models.Poco
         public DateTime StartingDate { get; set; }
         public string InstractionLanguage { get; set; }
         public string EducationType { get; set; }
+        public int UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

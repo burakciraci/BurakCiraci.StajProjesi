@@ -10,5 +10,6 @@ namespace KariyerJet.Com.Models.Poco
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
