@@ -8,24 +8,10 @@
     <link rel="stylesheet" href="~/cv/css/fontawsom-all.min.css">
     <link rel="stylesheet" type="text/css" href="~/cv/css/style.css" />
     <link href="~/cv/css/Navbar.css" rel="stylesheet" />
+    @*<link href="~/Admin/css/app.css" rel="stylesheet" />*@
 </head>
 <body>
     <div class="container-fluid overcover">
-        <br />
-        <div class="container">
-            <ul class="nav nav-pills" role="tablist">
-                <li class="nav-item">
-                     <a class="nav-link active" data-toggle="pill" href="#home">Anasayfa</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#menu1">Profili Düzenle</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="@Url.Action()">Çıkış Yap</a>
-                </li>
-            </ul>
-        </div>
-        <br />
         <div class="container profile-box">
             <div class="row">
                 @RenderBody()
@@ -44,6 +30,9 @@
     <script src="~/cv/js/popper.min.js"></script>
     <script src="~/cv/js/bootstrap.min.js"></script>
     <script src="~/cv/js/script.js"></script>
+    @*<script src="~/Admin/js/app.js"></script>
+    <script src="~/Admin/js/vendor.js"></script>*@
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

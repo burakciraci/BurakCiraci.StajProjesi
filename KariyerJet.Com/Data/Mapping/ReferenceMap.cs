@@ -12,7 +12,13 @@ namespace KariyerJet.Com.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Reference> builder)
         {
-            
+           
+            builder.HasData(new Reference
+            {
+                FullName = "Başak İnci",
+                Job = "Mağaza Müdürü",
+                Telephone = "",
+            });
         }
     }
 }

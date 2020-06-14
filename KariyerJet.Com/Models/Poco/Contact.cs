@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KariyerJet.Com.Models.Poco
 {
-    public class Contact : BaseModel
+    public class Contact : BaseModel<string>
     {
         public string Twitter { get; set; }
         public string Facebook { get; set; }
@@ -15,7 +15,7 @@ namespace KariyerJet.Com.Models.Poco
         public string Address { get; set; }
         public string WebSite { get; set; }
         public string GitHub { get; set; }
-        public int UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

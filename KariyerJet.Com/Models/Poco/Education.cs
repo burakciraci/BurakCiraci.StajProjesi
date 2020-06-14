@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KariyerJet.Com.Models.Poco
 {
-    public class Education : BaseModel
+    public class Education : BaseModel<string>
     {
         public string Degree { get; set; }
         public string School { get; set; }
@@ -15,7 +15,7 @@ namespace KariyerJet.Com.Models.Poco
         public DateTime StartingDate { get; set; }
         public string InstractionLanguage { get; set; }
         public string EducationType { get; set; }
-        public int UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

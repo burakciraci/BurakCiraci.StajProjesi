@@ -1,45 +1,41 @@
-﻿<div class="col-md-8 rt-div">
+﻿@model ApplicationUser
+
+<div class="col-md-8 rt-div">
     <div class="rit-cover">
         <div class="hotkey">
-            <h1 class="">Jonney Anderson </h1>
-            <small>Web Designer</small>
+            <h1 class="">@Model.UserName</h1>
+            <small>@Model.UserOccupation.Name</small>
         </div>
         <h2 class="rit-titl"><i class="far fa-user"></i> Profile</h2>
         <div class="about">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan purus enim, a vestibulum est tristique sit amet. Suspendisse nibh nisl, imperdiet sit amet mi vitae, elementum elementum nibh. Vivamus vitae eros malesuada, convallis dolor malesuada, lobortis ex. Sed cursus augue risus, ac semper est consectetur vitae. Praesent consequat metus sit amet rhoncus luctus.</p>
-            <div class="btn-ro row no-margin">
-                <ul class="btn-link">
-                    <li>
-                        <a href=""><i class="fas fa-paper-plane"></i> Hire Me</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fas fa-cloud-download-alt"></i> Download Resume</a>
+            <p>@Model.UserAbout</p>
+        </div>
+           <h2 class="rit-titl"><i class="fas fa-briefcase"></i> Work Experiance</h2>
+        @foreach (var item in Model.UserExperiance)
+        {
+            <div class="work-exp">
+                <h6>@item.Position <span>@item.StartingDate.Year-@item.ExpirationDate.Year</span></h6>
+                <i>@item.Company</i>
+                <ul>
+                    <li><i class="far fa-hand-point-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+                    <li><i class="far fa-hand-point-right"></i> Sorem dolor sit amet, consectetur. </li>
+                    <li><i class="far fa-hand-point-right"></i> Porem ipsum sit amet, consectetur adipiscing </li>
+                </ul>
+            </div>
+         };
+        <h2 class="rit-titl"><i class="fas fa-graduation-cap"></i> Education</h2>
+        
+        @foreach (var item in Model.UserEducation)
+        {
+            <div class="education">
+                <ul class="row no-margin">
+                    <li class="col-md-6">
+                        <span>@item.StartingDate.Year-@item.EndingDate.Year</span> <br>
+                        @item.Degree - @item.Branch - @item.School
                     </li>
                 </ul>
             </div>
-        </div>
-
-        <h2 class="rit-titl"><i class="fas fa-briefcase"></i> Work Experiance</h2>
-        <div class="work-exp">
-            <h6>Junior Software Developer <span>2008-2011</span></h6>
-            <i>Microsoft / United States</i>
-            <ul>
-                <li><i class="far fa-hand-point-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
-                <li><i class="far fa-hand-point-right"></i> Sorem dolor sit amet, consectetur. </li>
-                <li><i class="far fa-hand-point-right"></i> Porem ipsum sit amet, consectetur adipiscing </li>
-            </ul>
-        </div>
-
-        <h2 class="rit-titl"><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="education">
-            <ul class="row no-margin">
-                <li class="col-md-6">
-                    <span>2013-2015</span> <br>
-                    Master Degree - Cambridg University
-                </li>
-            </ul>
-        </div>
-
+         };
         <h2 class="rit-titl"><i class="fas fa-users-cog"></i> Skills</h2>
         <div class="profess-cover row no-margin">
             <div class="col-md-6">
@@ -66,7 +62,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="row prog-row">
                     <div class="col-sm-6">

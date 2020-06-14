@@ -1,4 +1,4 @@
 ﻿@{ ViewData["Title"] = "Home Page"; }
 
-<partial name="~/Views/Home/Partial/ProfileLeft.cshtml" />
-<partial name="~/Views/Home/Partial/ProfileRight.cshtml" />
+@await Component.InvokeAsync(typeof(ProfileRightComponent))
+@await Component.InvokeAsync(typeof(ProfileLeftComponent))

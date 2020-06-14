@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
 using KariyerJet.Com.Data.Context;
 using KariyerJet.Com.Models.Poco;
 using KariyerJet.Com.Models.Settings;
@@ -11,9 +6,6 @@ using KariyerJet.Com.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,7 +33,6 @@ namespace KariyerJet.Com
             {
                 //opt.UseInMemoryDatabase("InMemoryDatabase");
                 opt.UseSqlServer(connectionString);
-
                 opt.UseLazyLoadingProxies(true);
             }, ServiceLifetime.Transient);
 
@@ -70,8 +61,7 @@ namespace KariyerJet.Com
 
             services.AddAuthorization(cfg =>
             {
-                cfg.AddPolicy("YolunYarisi", p => p.Requirements.Add(new MinimumAgeRequirement(36)));
-                cfg.AddPolicy("RegisteredUsersOnly", p => p.Requirements.Add(new UserRequirement("admin", "user")));
+                cfg.AddPolicy("RegisteredUsersOnly", p => p.Requirements.Add(new UserRequirement("admin")));
             });
 
             services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();

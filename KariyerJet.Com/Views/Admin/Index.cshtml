@@ -1,0 +1,281 @@
+﻿@model ApplicationUser
+
+
+<div class="wrapper">
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+            <a class="sidebar-toggle d-flex"></a>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav navbar-align">
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="content">
+            <div class="container-fluid p-0">
+
+                <h1 class="h3 mb-3">Admin</h1>
+
+                <div class="row">
+                    <div class="col-md-3 col-xl-2">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Profile Settings</h5>
+                            </div>
+
+                            <div class="list-group list-group-flush" role="tablist">
+                                <a class="list-group-item list-group-item-action active" data-toggle="list" href="#User" role="tab">
+                                    User
+                                </a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#Contact" role="tab">
+                                    Contact
+                                </a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#Education" role="tab">
+                                    Education
+                                </a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#Experiance" role="tab">
+                                    Experiance
+                                </a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#Occupation" role="tab">
+                                    Occupation
+                                </a>
+                                <a class="list-group-item list-group-item-action" data-toggle="list" href="#Reference" role="tab">
+                                    Reference
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9 col-xl-10">
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="User" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Users</h4>
+                                    </div>
+                                    @if (Model!=null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:25%;">Name</th>
+                                                    <th style="width:25%">Email</th>
+                                                    <th class="d-none d-md-table-cell" style="width:40%">Biography</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>@Model.UserName</td>
+                                                    <td>@Model.Email</td>
+                                                    <td class="d-none d-md-table-cell">@Model.UserAbout</td>
+                                                    <td class="table-action">
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Contact" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Contact</h5>
+                                    </div>
+                                    @if (Model.UserContact != null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:13%;">Facebook</th>
+                                                    <th style="width:13%">Twitter</th>
+                                                    <th style="width:13%;">Linkedİn</th>
+                                                    <th style="width:13%">Web Site</th>
+                                                    <th style="width:13%;">Telephone</th>
+                                                    <th style="width:13%">Addres</th>
+                                                    <th style="width:13%;">GitHub</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>@Model.UserContact.Facebook</td>
+                                                    <td>@Model.UserContact.Twitter</td>
+                                                    <td>@Model.UserContact.LinkedIn</td>
+                                                    <td>@Model.UserContact.WebSite</td>
+                                                    <td>@Model.UserContact.Telephone</td>
+                                                    <td>@Model.UserContact.Address</td>
+                                                    <td>@Model.UserContact.GitHub</td>
+                                                    <td class="table-action">
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Education" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Education</h5>
+                                    </div>
+                                    @if (Model.UserEducation != null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:13%;">Branch</th>
+                                                    <th style="width:13%">Degree</th>
+                                                    <th style="width:13%;">School</th>
+                                                    <th style="width:13%">Language</th>
+                                                    <th style="width:13%;">EducationType</th>
+                                                    <th style="width:13%">StartingDate</th>
+                                                    <th style="width:13%;">EndingDate</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.UserEducation)
+                                                {
+                                                    <tr>
+                                                        <td>@item.Branch</td>
+                                                        <td>@item.Degree</td>
+                                                        <td>@item.School</td>
+                                                        <td>@item.InstractionLanguage</td>
+                                                        <td>@item.EducationType</td>
+                                                        <td>@item.StartingDate</td>
+                                                        <td>@item.EndingDate</td>
+                                                        <td class="table-action">
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Experiance" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Experiance</h5>
+                                    </div>
+                                    @if (Model.UserExperiance != null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:18%;">Position</th>
+                                                    <th style="width:18%;">MannerWork</th>
+                                                    <th style="width:18%">Company</th>
+                                                    <th style="width:18%">StartingDate</th>
+                                                    <th style="width:18%;">EndingDate</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.UserExperiance)
+                                                {
+                                                    <tr>
+                                                        <td>@item.Position</td>
+                                                        <td>@item.MannerWork</td>
+                                                        <td>@item.Company</td>
+                                                        <td>@item.StartingDate</td>
+                                                        <td>@item.ExpirationDate</td>
+                                                        <td class="table-action">
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Occupation" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Occupation</h5>
+                                    </div>
+                                    @if (Model.UserOccupation != null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:25%;">Name</th>
+                                                    <th style="width:50%;">Descrition</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>@Model.UserOccupation.Name</td>
+                                                    <td>@Model.UserOccupation.Description</td>
+                                                    <td class="table-action">
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                        <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Reference" role="tabpanel">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title">Reference</h5>
+                                    </div>
+                                    @if (Model.UserReference != null)
+                                    {
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:25%;">FullName</th>
+                                                    <th style="width:25%;">Occupation</th>
+                                                    <th style="width:25%">Telephone</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.UserReference)
+                                                {
+                                                    <tr>
+                                                        <td>@item.FullName</td>
+                                                        <td>@item.Job</td>
+                                                        <td>@item.Telephone</td>
+                                                        <td class="table-action">
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="edit-2"></i></a>
+                                                            <a href='@Url.Action()'><i class="align-middle" data-feather="trash"></i></a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

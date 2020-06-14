@@ -8,10 +8,20 @@ using System.Threading.Tasks;
 
 namespace KariyerJet.Com.Data.Mapping
 {
-    public class OccupationMap : IEntityTypeConfiguration<Reference>
+    public class OccupationMap : IEntityTypeConfiguration<Occupation>
     {
-        public void Configure(EntityTypeBuilder<Reference> builder)
+      
+        public void Configure(EntityTypeBuilder<Occupation> builder)
         {
+            builder.HasData(new Occupation
+            {
+                Description = "özyazı",
+                Name = "Yazılım Uzmanı",
+                IsDeleted=false,
+                IsActive=true,
+                Created=DateTime.Now,
+                Updated=DateTime.Now
+            });
         }
     }
 }
